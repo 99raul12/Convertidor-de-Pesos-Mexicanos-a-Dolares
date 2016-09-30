@@ -67,7 +67,6 @@ public class Converditor extends JFrame{
 		panelOperacion.setBorder(new EmptyBorder(4, 4, 4, 4));
 
 		nuevoBotonOperacion("Convertir");
-                nuevoBotonOperacion("=");
                 nuevoBotonOperacion("CE");
 
 
@@ -119,20 +118,14 @@ public class Converditor extends JFrame{
 	}
 
 	private void operacionPulsado(String tecla) {
-		if (tecla.equals("=")) {
+		if (tecla.equals("Convertir")) {
+                    resultado = new Double(pantalla.getText());
 			calcularResultado();
 		} else if (tecla.equals("CE")) {
 			resultado = 0;
 			pantalla.setText("");
 			nuevaOperacion = true;
-		} else {
-			operacion = tecla;
-			if ((resultado > 0) && !nuevaOperacion) {
-				calcularResultado();
-			} else {
-				resultado = new Double(pantalla.getText());
-			}
-		}
+		} 
 
 		nuevaOperacion = true;
 	}
